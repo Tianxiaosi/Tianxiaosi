@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<title>销售简报</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #000;
+		}
+		.swap{
+			margin-top: 100px;
+			border-radius: 5px;
+			background-color: #fff;
+			box-sizing: border-box;
+			padding: 10px 0; 
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+		.header{
+			margin-left: 20px;
+		}
+		.header-icon{
+			background-image: url("./svg/简报.svg");
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+			background-color: #93c78f;
+			border-radius: 100%;
+			margin-right: 5px;
+		}
+		.header-font{
+			justify-content: top;
+			color: #93c78f;
+			line-height: 18px;
+			font-size: 18px;
+			/*font-weight: bold;*/
+			margin: 0;
+			padding: 0;
+		}
+		.content{
+			margin-top: 30px;
+		}
+		.list{
+			position: relative;
+		}
+		.list img{
+				width: 25px;
+				height: 25px;
+		}
+		.list .right, .list .left{
+			display: inline-block;
+		}
+		.list .number{
+			font-size: 26px;
+			color: #a9b0b9;
+		}
+		.item .line{
+			color: #d7ead9;
+			font-size: 30px;
+		}
+		.list img{
+			margin-right: 5px;
+		}
+		.list .left{
+			position: relative;
+			top: 0;
+			left: 0;
+			height: 50px;
+			top: -25px;
+		}
+		.list .left::after{
+			content: " ";
+			height: 25px;
+			border-right: 2px solid #d7ead9;
+			position: absolute;
+
+			right: 0;
+			top: 0px;
+		}
+		.list .right{
+			opacity: .6;
+		}
+		.item{
+			display: inline-block;
+			margin-left: 20px;
+			margin-right: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="swap">
+		<header class="header"><i class="header-icon"></i><span class="header-font">销售简报</span></header>
+		<div class="content">
+			<div class="item list">
+				<div class="left">
+					<img src="./svg/人员.svg">		
+				</div>
+				<div class="right">
+					<p><span class="number">33</span>个</p>
+					<p>新增客户数</p>
+				</div>
+			</div>
+			<div class="item list">
+				<div class="left">
+					<img src="./svg/联系人.svg">		
+				</div>
+				<div class="right">
+					<p><span class="number">22</span>个</p>
+					<p>新增联系人</p>
+				</div>
+			</div>
+			<div class="item list">
+				<div class="left">
+					<img src="./svg/机会.svg">		
+				</div>
+				<div class="right">
+					<p><span class="number">47</span>个</p>
+					<p>新增商机数</p>
+				</div>
+			</div>
+			<div class="item list">
+				<div class="left">
+					<img src="./svg/销售阶段升迁.svg">		
+				</div>
+				<div class="right">
+					<p><span class="number">3</span>个</p>
+					<p>阶段变化的商机</p>
+				</div>
+			</div>
+			<div class="item list">
+				<div class="left">
+					<img src="./svg/联系人.svg">		
+				</div>
+				<div class="right">
+					<p><span class="number">3</span>个<span class="line">/</span><span class="number">2</span>次</p>
+					<p>拜访客户</p>
+				</div>
+			</div>
+			<div class="item list">
+				<div class="left">
+					<img src="./svg/记录.svg">		
+				</div>
+				<div class="right">
+					<p><span class="number">6</span>条</p>
+					<p>新增销售记录</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

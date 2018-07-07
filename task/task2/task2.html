@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<title></title>
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="https://cdn.bootcss.com/vuex/3.0.1/vuex.js"></script>
+	<style type="text/css">
+		li{
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<el-tag
+		  :key="item.key"
+		  v-for="item in items"
+		  v-show="item.sel"
+		  closable
+		  :disable-transitions="false"
+		  @close="selected(item)">
+		  {{item.value}}
+		</el-tag>
+		<el-button  class="button-new-tag" size="small" @click="Ifshow">+</el-button>
+		<div v-show="show">
+			<ul>
+				<li v-for="item in items"><el-checkbox :checked="item.sel" @change="selected(item)">{{item.value}}</el-checkbox></li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	const store = new Vuex.Store({
+		state:{
+			items:[
+				{
+					key: 0,
+					value: "变更中",
+					sel: false
+				},
+				{
+					key:1,
+					value: "未生效",
+					sel: true
+				},
+				{
+					key: 2,
+					value: "作废",
+					sel: false
+				},
+				{
+					key: 3,
+					value: "正常",
+					sel: false
+				},
+				{
+					key: 4,
+					value: "审核中",
+					sel: true
+				}
+			]
+		},
+		mutations: {
+			show(state,index){
+				state.items[index].sel= true;
+			},
+			hide(state, index){
+				state.items[index].sel= false;
+			}
+		}
+	})
+	var app = new Vue({
+		el:'#app',
+		store,
+		data:{
+			show: true,
+		},
+		computed:{
+			items(){
+				return this.$store.state.items;
+			}
+		},
+		methods:{
+			Ifshow(){
+				this.show=this.show?false:true;
+			},
+      selected(item){
+      	console.log(this.items);
+      	this.items.forEach((list, index)=>{
+      		if(list.key == item.key){
+      			if(list.sel){
+	      			store.commit('hide', list.key);
+	      		}else{
+	      			store.commit('show', list.key);
+	      		}
+      		}
+      	})
+      	console.log(item.key);
+      	
+      }
+		}
+	})
+</script>
+</html>
